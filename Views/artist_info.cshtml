@@ -5,3 +5,11 @@
     <li>@cd.GetTitle()</li>
   }
 </ol>
+<h2>Add a new CD for this artist</h2>
+<form action="/@Model["artist"].GetId()/artist_info" method="post">
+  <label for="new-cd-title">Enter the title of the new CD</label>
+  <input type="text" name="new-cd-title" id="new-cd-title">
+  <button type="submit">Add</button>
+</form>
+
+<a href="/">Back to Index</a>

@@ -14,7 +14,7 @@ namespace CD_Organizer
         Artist newArtist = new Artist(Request.Form["new-artist-name"]);
         return View["artist-added.cshtml", newArtist];
       };
-      Post["/{id}/cd_add_form"] = parameter => {
+      Post["/{id}/artist_info"] = parameter => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Artist selectedArtist = Artist.Find(parameter.id);
         List<CD> artistCds = selectedArtist.GetCd();
