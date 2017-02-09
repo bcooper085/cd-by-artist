@@ -1,0 +1,7 @@
+<h1>You have added a new artist! @Model.GetName()</h1>
+<h2>Add a new CD for this artist</h2>
+<form action="/@Model.GetId()/cd_add_form" method="post">
+  <label for="new-cd-title">Enter the title of the new CD</label>
+  <input type="text" name="new-cd-title" id="new-cd-title">
+  <button type="submit">Add</button>
+</form>
