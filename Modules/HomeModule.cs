@@ -25,6 +25,21 @@ namespace CD_Organizer
         model.Add("cds", artistCds);
         return View["artist_info.cshtml", model];
       };
+      Post["/search_result"] = _ => {
+        List<int> matchId = Artist.SearchArtist(Request.Form["artist-name"]);
+        if (matchId.Any()) {
+          foreach(int id in matchId){
+          Dictionary<string, object> model = new Dictionary<string, object>();
+          Artist selectedArtist = Artist.Find(id);
+          List<CD> artistCds = selectedArtist.GetCd();
+          model.Add("artist", selectedArtist);
+          model.Add("cds", artistCds);
+          model.Add("titleofcd", cd)
+          return View["artist_info.cshtml", model];
+        }else{
+          return View["not-found.cshtml"];
+        }
+      };
     }
   }
 }

@@ -52,5 +52,18 @@ namespace CD_Organizer.Objects
     {
       return _instances[searchId -1];
     }
+
+    public static List<int> SearchArtist(string name)
+    {
+      List<int> match = new List<int>{};
+      foreach (Artist person in _instances)
+      {
+        if (person.GetName().Contains(name))
+        {
+          match.Add(person.GetId());
+        }
+      }
+      return match;
+    }
   }
 }
