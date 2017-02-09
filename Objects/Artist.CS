@@ -46,6 +46,7 @@ namespace CD_Organizer.Objects
     public static void Clear()
     {
       _instances.Clear();
+
     }
 
     public static Artist Find(int searchId)
