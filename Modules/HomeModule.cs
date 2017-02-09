@@ -25,6 +25,14 @@ namespace CD_Organizer
         model.Add("cds", artistCds);
         return View["artist_info.cshtml", model];
       };
+      Get["/{id}/artist_info"] = parameter => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        Artist selectedArtist = Artist.Find(parameter.id);
+        List<CD> artistCds = selectedArtist.GetCd();
+        model.Add("artist", selectedArtist);
+        model.Add("cds", artistCds);
+        return View["artist_info.cshtml", model];
+      };
       Post["/search_result"] = _ => {
         List<int> matchId = Artist.SearchArtist(Request.Form["artist-name"]);
         List<Artist> matchArtist = new List<Artist> {};
